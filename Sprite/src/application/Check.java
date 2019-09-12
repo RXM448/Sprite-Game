@@ -1,22 +1,21 @@
 package application;
 
 public class Check {
-	double XLeft1, XRight1, YTop1, YBottom1, XLeft2, XRright2, YTop2, YBottom2;
+	double GXLeft, GXRight, GYTop, GYBottom, PXLeft, PXRright, PYTop, PYBottom;
 
-	// checks the boundaries of two objects to see if there is overlap and therefore collision 
-	public synchronized static  boolean checkColission(double Left1,double Right1,double Top1,double Bottom1,double Left2,double Right2,double Top2,double Bottom2) {
-		
-		 if((Left2 > Left1) && (Left2 < Right1) && (Bottom2 > Top1) && (Bottom2 < Bottom1)) {
+	public synchronized static  boolean checkColission(double GLeft,double GRight,double GTop,double GBottom,double PLeft,double PRight,double PTop,double PBottom) {
+		if ((PLeft > GLeft) && (PLeft < GRight) && (PTop > GTop) && (PTop < GBottom)){
 			return true;
-		}else if((Right2 > Left1) && (Right2 < Right1) && (Top2> Top1) && (Top2 < Bottom1)) {
+		}else if((PLeft > GLeft) && (PLeft < GRight) && (PBottom > GTop) && (PBottom < GBottom)) {
 			return true;
-		}else if((Right2 > Left1) && (Right2 < Right1) && (Bottom2 > Top1) && (Bottom2 < Bottom1)) {
+		}else if((PRight > GLeft) && (PRight < GRight) && (PTop > GTop) && (PTop < GBottom)) {
+			return true;
+		}else if((PRight > GLeft) && (PRight < GRight) && (PBottom > GTop) && (PBottom < GBottom)) {
 			return true;
 		}else
 			return false;
 	}
 
-	//checks a spike is not aboput to move out of bounds 
 	public synchronized static int SpikeBoundry(double layoutX, double layoutY) {
 		if (layoutX < 10) {
 			return 1;

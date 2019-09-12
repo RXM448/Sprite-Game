@@ -9,6 +9,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.shape.Rectangle;
 
+//fx:controller="application.SampleController">
 
 public class SampleController {
 
@@ -45,11 +46,12 @@ public class SampleController {
 		//sets playing boolean to true, allowing player movement
 		playing = true;
 
-		Start.setDisable(true);
-		
 		//starts movement of the spikes 
 		moveSpikes();
-
+		//thread1.start();
+		//thread2.start();
+		//thread3.start();
+		//thread4.start();   
 
 	}
 
@@ -60,8 +62,7 @@ public class SampleController {
 	void resetGame() {
 	
 		playing = false;
-		Start.setDisable(false);
-	
+		//thread1.stop();
 		Spike1 = new Spike(0, 0);
 		Spike2 = new Spike(0, 0);
 		Spike3 = new Spike(0, 0);
@@ -69,7 +70,6 @@ public class SampleController {
 		spikes = new Spike[]{Spike1, Spike2, Spike3, Spike4};
 		
 		Label_score.setText("0");
-		score = 0;
 		
 		Label_player.setLayoutX(initial.get(0)); Label_player.setLayoutY(initial.get(1)); 
 		Goal.setLayoutX(initial.get(2)); Goal.setLayoutY(initial.get(3));  
@@ -136,9 +136,8 @@ public class SampleController {
 
 	//ends the game by changing playing to false and printing text indicating loss 
 	private void youLose() {
-		
 		playing = false;
-		System.out.println("GAME OVER!");
+		System.out.print("YOU LOSE, GOOD DAY SIR!");
 
 
 	}
@@ -289,7 +288,7 @@ public class SampleController {
 
 				}
 				
-				//checks to see if each spikes movement has caused it to collide with the player 
+				//hecks to see if each spikes movement has caused it to collide with the player 
 				CheckSpikecollisions();
 				
 			}
@@ -302,93 +301,93 @@ public class SampleController {
 	thread1.start();
 	}
 
-//	Thread thread2 = new Thread(){
-//		public void run(){
-//			double LSX = 0, LSY =0;
-//			while(true) {
-//				try {
-//					Thread.sleep(100);
-//
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				LSX = Label_Spike2.getLayoutX();
-//				LSY = Label_Spike2.getLayoutY();
-//
-//				Label_Spike2.setLayoutX(LSX + Spike2.getXVol());
-//				Label_Spike2.setLayoutY(LSY + Spike2.getYVol());
-//
-//				LSX = Label_Spike2.getLayoutX();
-//				LSY = Label_Spike2.getLayoutY();
-//
-//				switch(Check.SpikeBoundry(LSX, LSY)) {
-//				case 0: break;
-//				case 1: Spike2.setXVol(- Spike2.getXVol()); break;
-//				case 2: Spike2.setYVol(- Spike2.getYVol()); break;
-//
-//				}
-//			}
-//		}
-//	};
-//
-//	Thread thread3 = new Thread(){
-//		public void run(){
-//			double LSX = 0, LSY =0;
-//			while(true) {
-//				try {
-//					Thread.sleep(100);
-//
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				LSX = Label_Spike3.getLayoutX();
-//				LSY = Label_Spike3.getLayoutY();
-//
-//				Label_Spike3.setLayoutX(LSX + Spike3.getXVol());
-//				Label_Spike3.setLayoutY(LSY + Spike3.getYVol());
-//
-//				LSX = Label_Spike3.getLayoutX();
-//				LSY = Label_Spike3.getLayoutY();
-//
-//				switch(Check.SpikeBoundry(LSX, LSY)) {
-//				case 0: break;
-//				case 1: Spike3.setXVol(- Spike3.getXVol()); break;
-//				case 2: Spike3.setYVol(- Spike3.getYVol()); break;
-//
-//				}
-//			}
-//		}
-//	};
-//
-//	Thread thread4 = new Thread(){
-//		public void run(){
-//
-//			double LSX = 0, LSY =0;
-//			while(true) {
-//				try {
-//					Thread.sleep(100);
-//
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				LSX = Label_Spike4.getLayoutX();
-//				LSY = Label_Spike4.getLayoutY();
-//
-//
-//				Label_Spike4.setLayoutX(LSX + Spike4.getXVol());
-//				Label_Spike4.setLayoutY(LSY + Spike4.getYVol());
-//
-//				LSX = Label_Spike4.getLayoutX();
-//				LSY = Label_Spike4.getLayoutY();
-//
-//				switch(Check.SpikeBoundry(LSX, LSY)) {
-//				case 0: break;
-//				case 1: Spike4.setXVol(- Spike4.getXVol()); break;
-//				case 2: Spike4.setYVol(- Spike4.getYVol()); break;
-//
-//				}
-//			}
-//		}
-//	};
+	Thread thread2 = new Thread(){
+		public void run(){
+			double LSX = 0, LSY =0;
+			while(true) {
+				try {
+					Thread.sleep(100);
+
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				LSX = Label_Spike2.getLayoutX();
+				LSY = Label_Spike2.getLayoutY();
+
+				Label_Spike2.setLayoutX(LSX + Spike2.getXVol());
+				Label_Spike2.setLayoutY(LSY + Spike2.getYVol());
+
+				LSX = Label_Spike2.getLayoutX();
+				LSY = Label_Spike2.getLayoutY();
+
+				switch(Check.SpikeBoundry(LSX, LSY)) {
+				case 0: break;
+				case 1: Spike2.setXVol(- Spike2.getXVol()); break;
+				case 2: Spike2.setYVol(- Spike2.getYVol()); break;
+
+				}
+			}
+		}
+	};
+
+	Thread thread3 = new Thread(){
+		public void run(){
+			double LSX = 0, LSY =0;
+			while(true) {
+				try {
+					Thread.sleep(100);
+
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				LSX = Label_Spike3.getLayoutX();
+				LSY = Label_Spike3.getLayoutY();
+
+				Label_Spike3.setLayoutX(LSX + Spike3.getXVol());
+				Label_Spike3.setLayoutY(LSY + Spike3.getYVol());
+
+				LSX = Label_Spike3.getLayoutX();
+				LSY = Label_Spike3.getLayoutY();
+
+				switch(Check.SpikeBoundry(LSX, LSY)) {
+				case 0: break;
+				case 1: Spike3.setXVol(- Spike3.getXVol()); break;
+				case 2: Spike3.setYVol(- Spike3.getYVol()); break;
+
+				}
+			}
+		}
+	};
+
+	Thread thread4 = new Thread(){
+		public void run(){
+
+			double LSX = 0, LSY =0;
+			while(true) {
+				try {
+					Thread.sleep(100);
+
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				LSX = Label_Spike4.getLayoutX();
+				LSY = Label_Spike4.getLayoutY();
+
+
+				Label_Spike4.setLayoutX(LSX + Spike4.getXVol());
+				Label_Spike4.setLayoutY(LSY + Spike4.getYVol());
+
+				LSX = Label_Spike4.getLayoutX();
+				LSY = Label_Spike4.getLayoutY();
+
+				switch(Check.SpikeBoundry(LSX, LSY)) {
+				case 0: break;
+				case 1: Spike4.setXVol(- Spike4.getXVol()); break;
+				case 2: Spike4.setYVol(- Spike4.getYVol()); break;
+
+				}
+			}
+		}
+	};
 }
 
