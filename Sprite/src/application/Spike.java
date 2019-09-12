@@ -6,10 +6,7 @@ public class Spike {
 
 	public Spike(double xVol, double yVol) {
 		super();
-//		XCoord = xCoord;
-//		YCoord = yCoord;
-//		XDim = xDim;
-//		YDim = yDim;
+
 		XVol = xVol;
 		YVol = yVol;
 	}
