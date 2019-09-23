@@ -22,8 +22,8 @@ public class Main extends Application {
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			primaryStage.setResizable(false);
 			
-			//SampleController controller = (SampleController) loader.getController();
 		
 			scene.addEventHandler(KeyEvent.KEY_PRESSED, (key) -> {
 			      switch(key.getCode()) {
